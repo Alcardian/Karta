@@ -1,0 +1,2 @@
+javac ClipboardListener.java
+java ClipboardListener
