@@ -1,6 +1,6 @@
 # Define variables
 SRC_DIR="src/main/java"
-VERSION="1.1.0-SNAPSHOT"
+VERSION="1.1.0"
 BUILD_DIR="target/Karta_$VERSION"
 SCRIPTS_DIR="src/main/resources/scripts"
 JAVA_FILE="com/alcardian/karta/ClipboardListener.java"
