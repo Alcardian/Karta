@@ -74,5 +74,4 @@ If using Intellij, make sure that;
 * The right SDK (JDK) is selected in Project Structure
 * That Language Level is set to 8 in Project Structure
   * Missing this can result in building for latest language level when running the build.sh directly from Intellij.
-* Preferred to not run the scripts from inside Intellij, adds its own dependencies.
 
