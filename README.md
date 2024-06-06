@@ -1,6 +1,8 @@
 # Karta
 Karta, meaning map.  
 
+This is a small clipboard scanner meant to ease taking coordinates in the MMO Pantheon.
+
 ## User Guide
 * Start the program by running "Run.bat".
   * A Windows CMD window will open, leave it or minimize it for as long as you want to run the program to record locations.
