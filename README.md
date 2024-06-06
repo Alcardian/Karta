@@ -51,6 +51,14 @@ Karta, meaning map.
   ```
 * Zip the built code in target, example "Karta_1.0.0.zip"
   * Create a release on Github and upload the zip.
+* Merge changes to main back to develop
+  ```sh
+  git checkout develop
+  git merge main
+  git push
+  ```
+* Dump version in "build.sh" and add back "-SNAPSHOT".
+  * Commit changes and push.
 
 ### Patching
 1. Create a branch from main.
