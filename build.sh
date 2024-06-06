@@ -40,6 +40,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Copy the README.md file to the build directory
+echo "Copying README.md to build directory..."
+cp "README.md" "$BUILD_DIR"
+if [ $? -ne 0 ]; then
+    echo "Failed to copy README.md."
+    exit 1
+fi
+
 # Print a success message
 echo "Build completed. Compiled files are in $BUILD_DIR"
 
