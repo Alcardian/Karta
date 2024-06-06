@@ -1,3 +1,5 @@
+package com.alcardian.karta;
+
 import java.awt.datatransfer.*;
 import java.awt.Toolkit;
 import java.io.*;
