@@ -56,6 +56,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Copy the LICENSE file to the build directory
+echo "Copying LICENSE to build directory..."
+cp "LICENSE" "$BUILD_DIR"
+if [ $? -ne 0 ]; then
+    echo "Failed to copy LICENSE."
+    exit 1
+fi
+
 # Print a success message
 echo "Build completed. Compiled files are in $BUILD_DIR"
 
