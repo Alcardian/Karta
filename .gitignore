@@ -1,2 +1,5 @@
 # Intellij
 .idea
+
+# Ignore target directory
+target/
