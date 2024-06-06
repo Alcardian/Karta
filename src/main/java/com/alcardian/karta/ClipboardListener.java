@@ -24,7 +24,10 @@ public class ClipboardListener {
                 try {
                     String currentClipboardText = getClipboardText();
                     if (currentClipboardText != null && !currentClipboardText.equals(lastClipboardText)) {
-                        appendToCSV(currentClipboardText);
+                        if (currentClipboardText.contains("/jumploc")){
+                            // Only append valid data to file, otherwise just update lastClipboardText
+                            appendToCSV(currentClipboardText);
+                        }
                         lastClipboardText = currentClipboardText;
                     }
                 } catch (Exception e) {
