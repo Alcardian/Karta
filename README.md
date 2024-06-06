@@ -14,5 +14,5 @@ Karta, meaning map.
 
 ## Goals
 * Be a simple application for assisting players mapping the game world of Pantheon.
-  * Write locations stored in clipboard to a ".scv" file to limit the manual steps needed.
+  * Write locations stored in clipboard to a ".csv" file to limit the manual steps needed.
 * Be usable by a somewhat technical user and not just programmers.
