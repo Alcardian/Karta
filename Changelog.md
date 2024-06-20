@@ -1,6 +1,7 @@
 # Change Log
 
 # 1.2.0
+- Data is written to new csv file. Determined by current time down to the minute. If launching twice within the minute it will still use the same data file as the first time.
 - LICENSE.md is copied to target at build.
 
 # 1.1.0
