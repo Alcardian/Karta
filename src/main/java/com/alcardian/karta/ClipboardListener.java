@@ -4,15 +4,21 @@ import java.awt.datatransfer.*;
 import java.awt.Toolkit;
 import java.io.*;
 import java.nio.file.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class ClipboardListener {
-    private static final String FILE_NAME = "data.csv";
+    private static final String FILE_PREFIX = "data_";
+    private static final String FILE_EXTENSION = ".csv";
 
     public static void main(String[] args) {
+        // Generate a unique file name for this run
+        String dataFile = generateUniqueFileName();
+
         // Ensure the file exists
-        ensureFileExists(FILE_NAME);
+        ensureFileExists(dataFile);
 
         // Set up a Timer to periodically check the clipboard
         Timer timer = new Timer();
@@ -26,7 +32,7 @@ public class ClipboardListener {
                     if (currentClipboardText != null && !currentClipboardText.equals(lastClipboardText)) {
                         if (currentClipboardText.contains("/jumploc")){
                             // Only append valid data to file, otherwise just update lastClipboardText
-                            appendToCSV(currentClipboardText);
+                            appendToCSV(dataFile ,currentClipboardText);
                         }
                         lastClipboardText = currentClipboardText;
                     }
@@ -64,11 +70,17 @@ public class ClipboardListener {
         return null;
     }
 
-    private static void appendToCSV(String text) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+    private static void appendToCSV(String fileName, String text) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
             writer.write(text + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String generateUniqueFileName() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd_HHmm");
+        String timestamp = sdf.format(new Date());
+        return FILE_PREFIX + timestamp + FILE_EXTENSION;
     }
 }
