@@ -12,6 +12,7 @@ import java.util.TimerTask;
 public class ClipboardListener {
     private static final String FILE_PREFIX = "data_";
     private static final String FILE_EXTENSION = ".csv";
+    private static final String LOG_FILE_NAME = "karta.log";
 
     public static void main(String[] args) {
         // Generate a unique file name for this run
@@ -37,7 +38,7 @@ public class ClipboardListener {
                         lastClipboardText = currentClipboardText;
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logError(e);
                 }
             }
         }, 0, 1000); // Check every second
@@ -53,7 +54,7 @@ public class ClipboardListener {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logError(e);
         }
     }
 
@@ -65,7 +66,7 @@ public class ClipboardListener {
                 return (String) contents.getTransferData(DataFlavor.stringFlavor);
             }
         } catch (UnsupportedFlavorException | IOException e) {
-            e.printStackTrace();
+            logError(e);
         }
         return null;
     }
@@ -74,7 +75,19 @@ public class ClipboardListener {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
             writer.write(text + "\n");
         } catch (IOException e) {
-            e.printStackTrace();
+            logError(e);
+        }
+    }
+
+    private static void logError(Exception e) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(LOG_FILE_NAME, true))) {
+            writer.write(new Date() + ": " + e.getMessage());
+            for (StackTraceElement element : e.getStackTrace()) {
+                writer.write("\n\t" + element.toString());
+            }
+            writer.write("\n");
+        } catch (IOException ioException) {
+            ioException.printStackTrace(); // In case logging to file fails
         }
     }
 
