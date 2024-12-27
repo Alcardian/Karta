@@ -48,6 +48,7 @@ This is a small clipboard scanner meant to ease taking coordinates in the MMO Pa
   ```
 * Remove "-SNAPSHOT" from "build.sh" script.
 * Build the project and verify that it still works.
+* Update "Changelog.md".
 * Commit as release.
 * Tag the release and push it
   ```sh
