@@ -40,6 +40,14 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Copy the check_run.bat file to the build directory
+echo "Copying run.bat to build directory..."
+cp "$SCRIPTS_DIR/check_run.bat" "$BUILD_DIR"
+if [ $? -ne 0 ]; then
+    echo "Failed to copy check_run.bat."
+    exit 1
+fi
+
 # Copy the README.md file to the build directory
 echo "Copying README.md to build directory..."
 cp "README.md" "$BUILD_DIR"

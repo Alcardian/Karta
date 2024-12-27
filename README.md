@@ -14,6 +14,9 @@ This is a small clipboard scanner meant to ease taking coordinates in the MMO Pa
     * Type "java -version", if you have it, its version will be displayed instead of an error message saying it doesn't know what "java" is.
   * Can be downloaded from: https://www.java.com/download/ie_manual.jsp
 
+### Issues Starting the Program
+* If you have issues starting the program, like it immediately closing on starting, try "check_run.bat" to see if you get any more information. 
+
 ## Goals
 * Be a simple application for assisting players mapping the game world of Pantheon.
   * Write locations stored in clipboard to a ".csv" file to limit the manual steps needed.
