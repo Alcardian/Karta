@@ -33,7 +33,7 @@ public class ClipboardListener {
                     if (currentClipboardText != null && !currentClipboardText.equals(lastClipboardText)) {
                         if (currentClipboardText.contains("/jumploc")){
                             // Only append valid data to file, otherwise just update lastClipboardText
-                            appendToCSV(dataFile ,currentClipboardText);
+                            appendToCSV(dataFile ,convertSpacesToCommas(currentClipboardText));
                         }
                         lastClipboardText = currentClipboardText;
                     }
@@ -69,6 +69,14 @@ public class ClipboardListener {
             logError(e);
         }
         return null;
+    }
+
+    public static String convertSpacesToCommas(String input) {
+        if (input == null || input.isEmpty()) {
+            return input; // Return as is if input is null or empty
+        }
+        // Replace spaces with commas
+        return input.replace(" ", ",");
     }
 
     private static void appendToCSV(String fileName, String text) {
