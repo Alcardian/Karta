@@ -12,6 +12,7 @@ import java.util.TimerTask;
 public class ClipboardListener {
     private static final String FILE_PREFIX = "data_";
     private static final String FILE_EXTENSION = ".csv";
+    private static final String FILE_HEADER_ROW = "Pantheon,X,Z,Y\n";   // First row of every new csv file.
     private static final String LOG_FILE_NAME = "karta.log";
 
     public static void main(String[] args) {
@@ -50,7 +51,7 @@ public class ClipboardListener {
             if (Files.notExists(path)) {
                 Files.createFile(path);
                 try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-                    writer.write("Clipboard Data\n"); // Write CSV header
+                    writer.write(FILE_HEADER_ROW); // Write CSV header
                 }
             }
         } catch (IOException e) {

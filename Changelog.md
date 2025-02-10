@@ -1,5 +1,8 @@
 # Change Log
 
+# 1.4.0
+- Changed header row in generated csv files to match user preference.
+
 # 1.3.0
 - Spaces in data is written to csv file are not converted to commas.
 - Added "check_run.bat", to help debug when users have issues.
